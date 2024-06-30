@@ -1,0 +1,62 @@
+# These pacakges provide the necessary information for Homebrew 
+# to install and manage various software packages and applications.
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+
+# Homebrew can manage 3 kind of apps
+# 'brew' will be used for CLI software
+# 'mas' will be used for Mac App Store software
+# 'cask' will be used for all the apps not available on the app store
+
+
+brew "mas"
+brew 'zsh-autosuggestions'
+
+# Browsers
+cask 'opera'
+cask 'google-chrome'
+cask 'orion'
+cask 'tor'
+cask 'brave-browser'
+
+# Coding/Linux
+cask 'visual-studio-code'
+cask 'raspberry-pi-imager'
+cask 'balenaetcher'
+cask 'chatgpt'
+brew 'python3'
+brew 'ollama'
+
+# Remote
+cask 'tailscale'
+cask 'anydesk'
+
+# App Store
+mas 1352778147 # Bitwarden
+mas 1661733229 # Localsend
+mas 1355679052 # Dropover
+mas 1596283165 # rCMD
+mas 1037126344 # Apple Configurator 2
+mas 1607635845 # Velja
+mas 6474268307 # Enchanted LLM
+
+# Personal
+cask 'sonos'
+cask 'whatsapp'
+cask 'spotify'
+
+# Other
+cask 'raycast'
+cask 'alt-tab'
+cask 'maccy'
+cask 'shottr'
+cask 'appcleaner'
+cask 'latest'
+cask 'applite'
+cask 'disk-drill'
+cask 'rocket'
+cask 'qlstephen'
+cask 'keka'
+cask 'karabiner-elements'
+cask 'keyclu'
