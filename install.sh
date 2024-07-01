@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Get the repository params
-export GIT_USERNAME=$1
-export REPO_NAME=$2
+export GIT_USERNAME="rohanod"
+export REPO_NAME="macOSInstall"
 
 # Prompt for sudo password, as it will be required for the installation
 echo 'Password required for installation:'
