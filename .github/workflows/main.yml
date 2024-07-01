@@ -19,9 +19,11 @@ jobs:
         run: |
           zip -r main.zip . -x "*.git*" -x "main.zip"
       - name: Delete Previous Release (if exists)
-        uses: liudonghua123/delete-release-action@v1
+        uses: larryjoelane/delete-release-action@v1.0.24
         with:
-          release_name: 'Release v1.0.0' 
+          tag: v1.0.0  # Specify the tag of the release to delete
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }} 
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
