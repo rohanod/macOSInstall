@@ -26,7 +26,7 @@ jobs:
         with:
           keep_latest: 1
           delete_tags: true
-          tag_name: v1.0.0  # Specify the exact tag to delete
+          delete_tag_pattern: v1.0.0  # Use delete_tag_pattern with exact tag
 
       - name: Create Release
         id: create_release
