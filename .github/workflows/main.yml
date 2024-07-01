@@ -9,6 +9,11 @@ jobs:
   zip_and_release:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20  # Ensure Node.js version compatibility
+
       - name: Checkout Code
         uses: actions/checkout@v3
 
@@ -18,12 +23,12 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1  # Use v1
+        uses: actions/create-release@v1 
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }} 
         with:
-          tag_name: ${{ github.sha }}
-          release_name: Latest Release
+          tag_name: v1.0.0-${{ github.run_id }}  # Version + run ID (or choose another option)
+          release_name: Release v1.0.0 (Build ${{ github.run_id }})
           draft: false
           prerelease: false
 
