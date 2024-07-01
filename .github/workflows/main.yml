@@ -1,0 +1,38 @@
+name: Create Main Zip and Release
+
+on:
+  push:
+    branches:
+      - main  # Replace with your desired branch
+
+jobs:
+  zip_and_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Create Zip File
+        run: |
+          zip -r main.zip . -x "*.git*" -x "main.zip"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.sha }}
+          release_name: Latest Release
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./main.zip
+          asset_name: main.zip
+          asset_content_type: application/zip
